@@ -37,4 +37,18 @@ function btnEventHandler(idOfInput,idOfAmount,productPrice,isIncrease) {
     //update parches amount
     const totalPrice = productPrice*newQuantity;
     document.getElementById(idOfAmount).innerText = totalPrice;
+    calculateTotal();
+}
+
+function calculateTotal () {
+    const phoneInput = document.getElementById("phonesQuantity");
+    const phoneCount = parseInt(phoneInput.value);
+    const caseInput = document.getElementById("casingQuantity")
+    const caseCount = parseInt(caseInput.value);
+    const tax = parseFloat(document.getElementById("tax").innerText);
+    const subtotal = phoneCount*1219+caseCount*59
+    const totalPrice = phoneCount*1219+caseCount*59 + tax;
+    document.getElementById("subtotal").innerText = subtotal;
+    document.getElementById("total").innerText = totalPrice;
+    console.log(phoneCount,caseCount,totalPrice,tax);
 }
