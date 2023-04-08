@@ -22,6 +22,22 @@ removeCasingQuantity.addEventListener("click",function(){
     btnEventHandler("casingQuantity","casingPrice",59, false);
 })
 
+//<<<<============Submit Button event handler========>>>>>
+const submitBtn = document.getElementById("submit");
+submitBtn.addEventListener("click",function(){
+    document.getElementById("phonesQuantity").value = "1";
+    document.getElementById("phonesPrice").innerText = "1219";
+    document.getElementById("casingQuantity").value = "1";
+    document.getElementById("casingPrice").innerText = "59";
+    document.getElementById("subtotal").innerText = "1278";
+    document.getElementById("tax").innerText = "192";
+    document.getElementById("total").innerText = "1470";
+    
+})
+
+
+
+
 //common function
 function btnEventHandler(idOfInput,idOfAmount,productPrice,isIncrease) {
     const input = document.getElementById(idOfInput);
@@ -45,10 +61,12 @@ function calculateTotal () {
     const phoneCount = parseInt(phoneInput.value);
     const caseInput = document.getElementById("casingQuantity")
     const caseCount = parseInt(caseInput.value);
-    const tax = parseFloat(document.getElementById("tax").innerText);
-    const subtotal = phoneCount*1219+caseCount*59
-    const totalPrice = phoneCount*1219+caseCount*59 + tax;
+    // const tax = parseFloat(document.getElementById("tax").innerText);
+    const subtotal = phoneCount*1219+caseCount*59;
+    const tax = Math.round(subtotal * (15/100));//15%D
+    const totalPrice = subtotal + tax;
     document.getElementById("subtotal").innerText = subtotal;
+    document.getElementById("tax").innerText = tax;
     document.getElementById("total").innerText = totalPrice;
     console.log(phoneCount,caseCount,totalPrice,tax);
 }
