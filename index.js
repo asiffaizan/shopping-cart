@@ -40,8 +40,7 @@ submitBtn.addEventListener("click",function(){
 
 //common function
 function btnEventHandler(idOfInput,idOfAmount,productPrice,isIncrease) {
-    const input = document.getElementById(idOfInput);
-    const quantity = parseFloat(input.value);
+    const quantity = getInputCount(idOfInput);
     let newQuantity = quantity;
     if (isIncrease == true){
         newQuantity = quantity + 1;
@@ -57,11 +56,8 @@ function btnEventHandler(idOfInput,idOfAmount,productPrice,isIncrease) {
 }
 
 function calculateTotal () {
-    const phoneInput = document.getElementById("phonesQuantity");
-    const phoneCount = parseInt(phoneInput.value);
-    const caseInput = document.getElementById("casingQuantity")
-    const caseCount = parseInt(caseInput.value);
-    // const tax = parseFloat(document.getElementById("tax").innerText);
+    const phoneCount = getInputCount("phonesQuantity")
+    const caseCount = getInputCount("casingQuantity")
     const subtotal = phoneCount*1219+caseCount*59;
     const tax = Math.round(subtotal * (15/100));//15%D
     const totalPrice = subtotal + tax;
@@ -69,4 +65,9 @@ function calculateTotal () {
     document.getElementById("tax").innerText = tax;
     document.getElementById("total").innerText = totalPrice;
     console.log(phoneCount,caseCount,totalPrice,tax);
+}
+function getInputCount(product){
+    const input = document.getElementById(product)
+    const count = parseInt(input.value);
+    return count
 }
