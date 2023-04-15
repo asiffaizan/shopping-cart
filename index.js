@@ -32,6 +32,8 @@ submitBtn.addEventListener("click",function(){
     document.getElementById("subtotal").innerText = "1278";
     document.getElementById("tax").innerText = "192";
     document.getElementById("total").innerText = "1470";
+    // alert("Hello! I am an alert box!!");
+    confirm("Thanks For Shopping!");
     
 })
 
@@ -40,7 +42,8 @@ submitBtn.addEventListener("click",function(){
 
 //common function
 function btnEventHandler(idOfInput,idOfAmount,productPrice,isIncrease) {
-    const quantity = getInputCount(idOfInput);
+    const input = document.getElementById(idOfInput);
+    const quantity = parseInt(input.value);
     let newQuantity = quantity;
     if (isIncrease == true){
         newQuantity = quantity + 1;
