@@ -32,7 +32,7 @@ submitBtn.addEventListener("click",function(){
     document.getElementById("subtotal").innerText = "1278";
     document.getElementById("tax").innerText = "192";
     document.getElementById("total").innerText = "1470";
-    // alert("Hello! I am an alert box!!");
+    // alert("Thank you so much");
     confirm("Thanks For Shopping!");
     
 })
